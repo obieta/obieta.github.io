@@ -1,1 +1,516 @@
-Index!
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Bottom navbar example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-bottom/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <style>
+        .blue {
+            border-bottom-color: #50AAE6 !important;
+            background-color: #50AAE6;
+        }
+
+        .purple {
+            border-bottom-color: #646EA0 !important;
+            background-color: #646EA0;
+        }
+
+        .triangle-small {
+            width: 0;
+            height: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid;
+            background-color: transparent;
+        }
+
+        .triangle-large {
+            width: 0;
+            height: 0;
+            margin-left: auto;
+            margin-right: auto;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid;
+            background-color: transparent;
+        }
+
+        .square-small {
+            margin-left: auto;
+            margin-right: auto;
+            height: 50px;
+            width: 50px;
+        }
+
+        .square-large {
+            margin-left: auto;
+            margin-right: auto;
+            height: 100px;
+            width: 100px;
+        }
+
+        .circle-small {
+            margin-left: auto;
+            margin-right: auto;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .circle-large {
+            margin-left: auto;
+            margin-right: auto;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-instructions" role="tabpanel" aria-labelledby="pills-instructions-tab">
+            <div class="container">
+                <div class="jumbotron mt-3">
+                    <h1>Instructions</h1>
+                </div>
+                <div class="jumbotron mt-3">
+                    <h2>Problem statement</h2>
+                    <p>Pose this problem. A factory line conveyor belt passes through a robot station equipped with a
+                        robotic hand and vision recognition system to sort random children's building blocks on the belt
+                        into bins.
+                        <hr />Widgets may be small, triangles, rounds, squares, black, large,
+                        white, triangles, or appropriate combinations thereof. Each bin should be:
+                        <ol>
+                            <li>Assigned four small objects.</li>
+                            <li>Assigned seven large objects</li>
+                            <li>A general shape may have no more than four instances of a specific color.</li>
+                            <li>A general shape may have no more than five instances of a single size</li>
+                        </ol>
+                        <hr />
+                        How would we test such a system?<br/>Kids need a variety of building blocks!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-scenario" role="tabpanel" aria-labelledby="pills-scenario-tab">
+
+            <div class="container">
+                <div class="jumbotron mt-3">
+                    <h1>Scenario Setup</h1>
+                </div>
+                <!--BLUE-->
+                <div class="jumbotron mt-3">
+                    <h2>Blue Shapes</h2>
+                    <!--small-->
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="sbtQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Trianlge
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="triangle-small blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="sbsQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Square
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="square-small blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="sbcQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Circle
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="circle-small blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--large-->
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lbtQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Trianlge
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="triangle-large blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lbsQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Square
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="square-large blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lbcQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Circle
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="circle-large blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PURPLE-->
+                <div class="jumbotron mt-3">
+                    <h2>Purple Shapes</h2>
+                    <!--small-->
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="sptQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Trianlge
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="triangle-small purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="spsQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Square
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="square-small purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="spcQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Small Circle
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="circle-small purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--large-->
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lptQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Trianlge
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="triangle-large purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lpsQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Square
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="square-large purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" value="1" class="form-control" id="lpcQuantity">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Large Circle
+                                                Quantity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                    <p class="card-text">
+                                    <div class="circle-large purple"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-results" role="tabpanel" aria-labelledby="pills-result-tab">
+                <div class="container">
+                        <div class="jumbotron mt-3">
+                            <h1>Results</h1>
+                        </div>
+                        <div class="jumbotron mt-3">
+                            <h2>Bin Outcome</h2>
+                            <p id="resultsData">results detail data</p>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-instructions-tab" data-toggle="pill" href="#pills-instructions" role="tab"
+                        aria-controls="pills-instructions" aria-selected="true">Instructions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-scenario-tab" data-toggle="pill" href="#pills-scenario" role="tab"
+                        aria-controls="pills-scenario" aria-selected="false">Scenario Set Up</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" id="pills-scenario-tab" data-toggle="pill" href="#pills-results" role="tab"
+                        aria-controls="pills-results" aria-selected="false" onclick="displayResults();">Results</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        class Shape{
+            constructor(name, color, size, quantity, identifier){
+                this.name = name;
+                this.color = color;
+                this.size = size;
+                this.quantity = quantity;
+                this.identifier = identifier;
+            }
+        }
+
+
+        function displayResults(){
+
+            let inputData = {};
+            let inputDataArr = [];
+            let outputBin = {};
+
+            inputData['sbt'] = new Shape('triangle','blue','small',$('#sbtQuantity').val(), 'sbt');
+            inputData['sbc'] = new Shape('circle','blue','small',$('#sbcQuantity').val(), 'sbc');
+            inputData['sbs'] = new Shape('square','blue','small',$('#sbsQuantity').val(), 'sbs');
+            
+            inputData['lbt'] = new Shape('triangle','blue','large',$('#lbtQuantity').val()), 'lbt';
+            inputData['lbc'] = new Shape('circle','blue','large',$('#lbcQuantity').val(), 'lbc');
+            inputData['lbs'] = new Shape('square','blue','large',$('#lbsQuantity').val(), 'lbd');
+
+            inputData['spt'] = new Shape('triangle','purple','small',$('#sptQuantity').val(), 'spt');
+            inputData['spc'] = new Shape('circle','purple','small',$('#spcQuantity').val(), 'spc');
+            inputData['sps'] = new Shape('square','purple','small',$('#spsQuantity').val(), 'sps');
+            
+            inputData['lpt'] = new Shape('triangle','purple','large',$('#lptQuantity').val(), 'lpt');
+            inputData['lpc'] = new Shape('circle','purple','large',$('#lpcQuantity').val(), 'lpc');
+            inputData['lps'] = new Shape('square','purple','large',$('#lpsQuantity').val(), 'lps');
+
+            //we get single shape into an array to iterate on it later
+            for(let key in inputData){
+                for(let i=0; i<inputData[key].quantity; i++){
+                    let tempShape = new Shape(inputData[key].name, inputData[key].color, inputData[key].size, 1, inputData[key].identifier);
+                    inputDataArr.push(tempShape);
+                }
+            }
+
+            //now we iterate the array and push elements to the outputBin object
+            for(let shape of inputDataArr){
+                const shapeColorCount = getShapeCountByColor(shape, outputBin);
+                const shapeSizeCount = getShapeCountBySize(shape, outputBin);
+
+                if(shapeColorCount<4 && shapeSizeCount<5){
+                    if(outputBin[shape.identifier]){
+                        outputBin[shape.identifier].quantity++;
+                    }else{
+                        outputBin[shape.identifier] = shape;
+                    }
+                }
+            }
+
+            html = getPrintableHtml(outputBin);
+            setResultsData(html);
+        }
+
+        function getPrintableHtml(outputBin){
+            let html = 'The bin contains:</br><hr/></br><ul>';
+            for(let key in outputBin){
+                html = html + '<li>' + outputBin[key].quantity + ' ' + outputBin[key].size + ' ' + outputBin[key].color + ' ' + outputBin[key].name + '(s)</li>';
+            }
+            html = html + '</ul>';
+            return html;
+        }
+
+
+        function setResultsData(html){
+            $('#resultsData').html(html);
+        }
+
+        function getShapeCountByColor(inputShape, outputBin){
+            let count = 0;
+            for(let key in outputBin){
+                if(outputBin[key].color===inputShape.color && outputBin[key].name===inputShape.name){
+                    count = count + outputBin[key].quantity;
+                }
+            }
+
+            return count;
+        }
+
+        function getShapeCountBySize(inputShape, outputBin){
+            let count = 0;
+            for(let shape in outputBin){
+                if(outputBin[shape].size===inputShape.size && outputBin[shape].name===inputShape.name){
+                    count = count + outputBin[shape].quantity;
+                }
+            }
+
+            return count;
+        }
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
