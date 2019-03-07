@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -96,7 +95,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-instructions" role="tabpanel"
@@ -125,7 +123,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-scenario" role="tabpanel" aria-labelledby="pills-scenario-tab">
-
             <div class="container">
                 <div class="jumbotron mt-3">
                     <h1>Scenario Setup</h1>
@@ -362,9 +359,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
         <div class="tab-pane fade" id="pills-results" role="tabpanel" aria-labelledby="pills-result-tab">
             <div class="container">
@@ -376,6 +370,9 @@
                     <p id="resultsData">results detail data</p>
                 </div>
             </div>
+        </div>
+        <div class="tab-pane fade" id="pills-rules" role="tabpanel" aria-labelledby="pills-rules-tab">
+            configure rules
         </div>
     </div>
 
@@ -394,10 +391,13 @@
                     <a class="nav-link" id="pills-scenario-tab" data-toggle="pill" href="#pills-results" role="tab"
                         aria-controls="pills-results" aria-selected="false" onclick="displayResults();">Results</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-rules-tab" data-toggle="pill" href="#pills-rules" role="tab"
+                        aria-controls="pills-rules" aria-selected="false">Manage Rules</a>
+                </li>
             </ul>
         </div>
     </nav>
-
     <script>
         class Shape {
             constructor(name, color, size, quantity, identifier) {
@@ -409,12 +409,18 @@
             }
         }
 
-
         function displayResults() {
 
+            let inputData = getInputData();
+            let inputDataArr = getArrayFromInputData(inputData);
+            let outputBin = getOutputData(inputDataArr);
+            let html = getPrintableHtml(outputBin);
+
+            setResultsData(html);
+        }
+
+        function getInputData() {
             let inputData = {};
-            let inputDataArr = [];
-            let outputBin = {};
 
             inputData['sbt'] = new Shape('triangle', 'blue', 'small', $('#sbtQuantity').val(), 'sbt');
             inputData['sbc'] = new Shape('circle', 'blue', 'small', $('#sbcQuantity').val(), 'sbc');
@@ -432,14 +438,22 @@
             inputData['lpc'] = new Shape('circle', 'purple', 'large', $('#lpcQuantity').val(), 'lpc');
             inputData['lps'] = new Shape('square', 'purple', 'large', $('#lpsQuantity').val(), 'lps');
 
-            //we get single shape into an array to iterate on it later
+            return inputData;
+        }
+
+        function getArrayFromInputData(inputData) {
+            let inputDataArr = [];
             for (let key in inputData) {
                 for (let i = 0; i < inputData[key].quantity; i++) {
                     let tempShape = new Shape(inputData[key].name, inputData[key].color, inputData[key].size, 1, inputData[key].identifier);
                     inputDataArr.push(tempShape);
                 }
             }
+            return inputDataArr;
+        }
 
+        function getOutputData(inputDataArr) {
+            let outputBin = {};
             //now we iterate the array and push elements to the outputBin object
             for (let shape of inputDataArr) {
                 const shapeSize = shape.size;
@@ -456,8 +470,7 @@
                 }
             }
 
-            html = getPrintableHtml(outputBin);
-            setResultsData(html);
+            return outputBin;
         }
 
         function getPrintableHtml(outputBin) {
@@ -468,7 +481,6 @@
             html = html + '</ul>';
             return html;
         }
-
 
         function setResultsData(html) {
             $('#resultsData').html(html);
@@ -508,8 +520,6 @@
         }
 
     </script>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
