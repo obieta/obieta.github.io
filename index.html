@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,9 +48,9 @@
             height: 0;
             margin-left: auto;
             margin-right: auto;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 50px solid;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid;
             background-color: transparent;
         }
 
@@ -58,51 +59,49 @@
             height: 0;
             margin-left: auto;
             margin-right: auto;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 100px solid;
+            border-left: 24px solid transparent;
+            border-right: 24px solid transparent;
+            border-bottom: 48px solid;
             background-color: transparent;
         }
 
         .square-small {
             margin-left: auto;
             margin-right: auto;
-            height: 50px;
-            width: 50px;
+            height: 24px;
+            width: 24px;
         }
 
         .square-large {
             margin-left: auto;
             margin-right: auto;
-            height: 100px;
-            width: 100px;
+            height: 48px;
+            width: 48px;
         }
 
         .circle-small {
             margin-left: auto;
             margin-right: auto;
-            height: 50px;
-            width: 50px;
+            height: 24px;
+            width: 24px;
             border-radius: 50%;
         }
 
         .circle-large {
             margin-left: auto;
             margin-right: auto;
-            height: 100px;
-            width: 100px;
+            height: 48px;
+            width: 48px;
             border-radius: 50%;
         }
     </style>
 </head>
+
 <body>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-instructions" role="tabpanel"
             aria-labelledby="pills-instructions-tab">
             <div class="container">
-                <div class="jumbotron mt-3">
-                    <h1>Instructions</h1>
-                </div>
                 <div class="jumbotron mt-3">
                     <h2>Problem statement</h2>
                     <p>Pose this problem. A factory line conveyor belt passes through a robot station equipped with a
@@ -124,9 +123,6 @@
         </div>
         <div class="tab-pane fade" id="pills-scenario" role="tabpanel" aria-labelledby="pills-scenario-tab">
             <div class="container">
-                <div class="jumbotron mt-3">
-                    <h1>Scenario Setup</h1>
-                </div>
                 <!--BLUE-->
                 <div class="jumbotron mt-3">
                     <h2>Shapes</h2>
@@ -363,9 +359,6 @@
         <div class="tab-pane fade" id="pills-results" role="tabpanel" aria-labelledby="pills-result-tab">
             <div class="container">
                 <div class="jumbotron mt-3">
-                    <h1>Results</h1>
-                </div>
-                <div class="jumbotron mt-3">
                     <h2>Bin Outcome</h2>
                     <p id="resultsData">results detail data</p>
                 </div>
@@ -374,68 +367,73 @@
         <div class="tab-pane fade" id="pills-rules" role="tabpanel" aria-labelledby="pills-rules-tab">
             <div class="container">
                 <div class="jumbotron mt-3">
-                    <h1>Manage Rules</h1>
-                </div>
-                <div class="jumbotron mt-3">
                     <h2>Configuration</h2>
                     <form>
                         <div class="form-row align-items-center">
-                          <div class="col-7">
-                            <span>Assigned maximum "X" small objects.</span>
-                          </div>
-                          <div class="col">
-                            <input type="number" value="4" class="form-control" placeholder="Max Value" id="ruleA_maxValue">
-                          </div>
-                          <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="ruleA_isEnabled" checked="checked">
-                                <label class="form-check-label" for="ruleA_isEnabled">Enabled</label>
-                              </div>
-                          </div>
+                            <div class="col-7">
+                                <span>Assigned maximum "X" small objects.</span>
+                            </div>
+                            <div class="col">
+                                <input type="number" value="4" class="form-control" placeholder="Max Value"
+                                    id="ruleA_maxValue">
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ruleA_isEnabled"
+                                        checked="checked">
+                                    <label class="form-check-label" for="ruleA_isEnabled">Enabled</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-row align-items-center">
                             <div class="col-7">
-                              <span>Assigned maximum "X" large objects</span>
+                                <span>Assigned maximum "X" large objects</span>
                             </div>
                             <div class="col">
-                              <input type="number" value="7" class="form-control" placeholder="Max Value" id="ruleB_maxValue">
+                                <input type="number" value="7" class="form-control" placeholder="Max Value"
+                                    id="ruleB_maxValue">
                             </div>
                             <div class="col">
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="ruleB_isEnabled" checked="checked">
-                                  <label class="form-check-label" for="ruleB_isEnabled">Enabled</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ruleB_isEnabled"
+                                        checked="checked">
+                                    <label class="form-check-label" for="ruleB_isEnabled">Enabled</label>
                                 </div>
                             </div>
-                          </div>
-                          <div class="form-row align-items-center">
+                        </div>
+                        <div class="form-row align-items-center">
                             <div class="col-7">
-                              <span>A general shape may have no more than "X" instances of a specific color.</span>
+                                <span>A general shape may have no more than "X" instances of a specific color.</span>
                             </div>
                             <div class="col">
-                              <input type="number" value="4" class="form-control" placeholder="Max Value" id="ruleC_maxValue">
+                                <input type="number" value="4" class="form-control" placeholder="Max Value"
+                                    id="ruleC_maxValue">
                             </div>
                             <div class="col">
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="ruleC_isEnabled" checked="checked">
-                                  <label class="form-check-label" for="ruleC_isEnabled">Enabled</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ruleC_isEnabled"
+                                        checked="checked">
+                                    <label class="form-check-label" for="ruleC_isEnabled">Enabled</label>
                                 </div>
                             </div>
-                          </div>
-                          <div class="form-row align-items-center">
+                        </div>
+                        <div class="form-row align-items-center">
                             <div class="col-7">
-                              <span>A general shape may have no more than "X" instances of a single size.</span>
+                                <span>A general shape may have no more than "X" instances of a single size.</span>
                             </div>
                             <div class="col">
-                              <input type="number" value="5" class="form-control" placeholder="Max Value" id="ruleD_maxValue">
+                                <input type="number" value="5" class="form-control" placeholder="Max Value"
+                                    id="ruleD_maxValue">
                             </div>
                             <div class="col">
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="ruleD_isEnabled" checked="checked">
-                                  <label class="form-check-label" for="ruleD_isEnabled">Enabled</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ruleD_isEnabled"
+                                        checked="checked">
+                                    <label class="form-check-label" for="ruleD_isEnabled">Enabled</label>
                                 </div>
                             </div>
-                          </div>
-                      </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -520,11 +518,11 @@
             let outputBin = {};
 
             for (let shape of inputDataArr) {
-                
+
                 const addShape = shouldBeAdded(shape, outputBin);
-                
-                if(addShape){
-                   if (outputBin[shape.identifier]) {
+
+                if (addShape) {
+                    if (outputBin[shape.identifier]) {
                         outputBin[shape.identifier].quantity++;
                     } else {
                         outputBin[shape.identifier] = shape;
@@ -535,23 +533,23 @@
             return outputBin;
         }
 
-        function shouldBeAdded(shape, outputBin){
+        function shouldBeAdded(shape, outputBin) {
             let addShape = true;
             const shapeSize = shape.size;
             const shapeColorCount = getShapeCountByColor(shape, outputBin);
             const shapeSizeCount = getShapeCountBySize(shape, outputBin);
             const sizeCount = getCountBySize(shape, outputBin);
 
-            const ruleA_isEnabled = $('#ruleA_isEnabled').is(':checked'); 
+            const ruleA_isEnabled = $('#ruleA_isEnabled').is(':checked');
             const ruleA_maxValue = $('#ruleA_maxValue').val();
 
-            const ruleB_isEnabled = $('#ruleB_isEnabled').is(':checked'); 
+            const ruleB_isEnabled = $('#ruleB_isEnabled').is(':checked');
             const ruleB_maxValue = $('#ruleB_maxValue').val();
 
-            const ruleC_isEnabled = $('#ruleC_isEnabled').is(':checked'); 
+            const ruleC_isEnabled = $('#ruleC_isEnabled').is(':checked');
             const ruleC_maxValue = $('#ruleC_maxValue').val();
 
-            const ruleD_isEnabled = $('#ruleD_isEnabled').is(':checked'); 
+            const ruleD_isEnabled = $('#ruleD_isEnabled').is(':checked');
             const ruleD_maxValue = $('#ruleD_maxValue').val();
 
             if (addShape && ruleA_isEnabled && shapeSize === 'small') {
@@ -562,7 +560,7 @@
                 addShape = sizeCount < ruleB_maxValue;
             }
 
-            if(addShape && ruleC_isEnabled){
+            if (addShape && ruleC_isEnabled) {
                 addShape = shapeColorCount < ruleC_maxValue;
             }
 
@@ -575,10 +573,19 @@
 
         function getPrintableHtml(outputBin) {
             let html = 'The bin contains:</br><hr/></br><ul>';
+            let isEmpty = true;
+            
             for (let key in outputBin) {
+                isEmpty = false;
                 html = html + '<li>' + outputBin[key].quantity + ' ' + outputBin[key].size + ' ' + outputBin[key].color + ' ' + outputBin[key].name + '(s)</li>';
             }
-            html = html + '</ul>';
+            
+            if(isEmpty){
+                html = 'The bin is empty!';
+            }else{
+                html = html + '</ul>';
+            }
+
             return html;
         }
 
