@@ -112,9 +112,9 @@
                         white, triangles, or appropriate combinations thereof. Each bin should be:
                         <ol>
                             <li>Assigned maximum four small objects.</li>
-                            <li>Assigned maximum seven large objects</li>
+                            <li>Assigned maximum seven large objects.</li>
                             <li>A general shape may have no more than four instances of a specific color.</li>
-                            <li>A general shape may have no more than five instances of a single size</li>
+                            <li>A general shape may have no more than five instances of a single size.</li>
                         </ol>
                         <hr />
                         How would we test such a system?<br />Kids need a variety of building blocks!
@@ -372,7 +372,72 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-rules" role="tabpanel" aria-labelledby="pills-rules-tab">
-            configure rules
+            <div class="container">
+                <div class="jumbotron mt-3">
+                    <h1>Manage Rules</h1>
+                </div>
+                <div class="jumbotron mt-3">
+                    <h2>Configuration</h2>
+                    <form>
+                        <div class="form-row align-items-center">
+                          <div class="col-7">
+                            <span>Assigned maximum "X" small objects.</span>
+                          </div>
+                          <div class="col">
+                            <input type="number" value="4" class="form-control" placeholder="Max Value" id="ruleA_maxValue">
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ruleA_isEnabled" checked="checked">
+                                <label class="form-check-label" for="ruleA_isEnabled">Enabled</label>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="form-row align-items-center">
+                            <div class="col-7">
+                              <span>Assigned maximum "X" large objects</span>
+                            </div>
+                            <div class="col">
+                              <input type="number" value="7" class="form-control" placeholder="Max Value" id="ruleB_maxValue">
+                            </div>
+                            <div class="col">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="ruleB_isEnabled" checked="checked">
+                                  <label class="form-check-label" for="ruleB_isEnabled">Enabled</label>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="form-row align-items-center">
+                            <div class="col-7">
+                              <span>A general shape may have no more than "X" instances of a specific color.</span>
+                            </div>
+                            <div class="col">
+                              <input type="number" value="4" class="form-control" placeholder="Max Value" id="ruleC_maxValue">
+                            </div>
+                            <div class="col">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="ruleC_isEnabled" checked="checked">
+                                  <label class="form-check-label" for="ruleC_isEnabled">Enabled</label>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="form-row align-items-center">
+                            <div class="col-7">
+                              <span>A general shape may have no more than "X" instances of a single size.</span>
+                            </div>
+                            <div class="col">
+                              <input type="number" value="5" class="form-control" placeholder="Max Value" id="ruleD_maxValue">
+                            </div>
+                            <div class="col">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="ruleD_isEnabled" checked="checked">
+                                  <label class="form-check-label" for="ruleD_isEnabled">Enabled</label>
+                                </div>
+                            </div>
+                          </div>
+                      </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -410,11 +475,10 @@
         }
 
         function displayResults() {
-
-            let inputData = getInputData();
-            let inputDataArr = getArrayFromInputData(inputData);
-            let outputBin = getOutputData(inputDataArr);
-            let html = getPrintableHtml(outputBin);
+            const inputData = getInputData();
+            const inputDataArr = getArrayFromInputData(inputData);
+            const outputBin = getOutputData(inputDataArr);
+            const html = getPrintableHtml(outputBin);
 
             setResultsData(html);
         }
@@ -454,15 +518,13 @@
 
         function getOutputData(inputDataArr) {
             let outputBin = {};
-            //now we iterate the array and push elements to the outputBin object
-            for (let shape of inputDataArr) {
-                const shapeSize = shape.size;
-                const shapeColorCount = getShapeCountByColor(shape, outputBin);
-                const shapeSizeCount = getShapeCountBySize(shape, outputBin);
-                const sizeCount = getCountBySize(shape, outputBin);
 
-                if (shapeColorCount < 4 && shapeSizeCount < 5 && ((shapeSize === 'small' && sizeCount < 4) || (shapeSize === 'large' && sizeCount < 7))) {
-                    if (outputBin[shape.identifier]) {
+            for (let shape of inputDataArr) {
+                
+                const addShape = shouldBeAdded(shape, outputBin);
+                
+                if(addShape){
+                   if (outputBin[shape.identifier]) {
                         outputBin[shape.identifier].quantity++;
                     } else {
                         outputBin[shape.identifier] = shape;
@@ -471,6 +533,44 @@
             }
 
             return outputBin;
+        }
+
+        function shouldBeAdded(shape, outputBin){
+            let addShape = true;
+            const shapeSize = shape.size;
+            const shapeColorCount = getShapeCountByColor(shape, outputBin);
+            const shapeSizeCount = getShapeCountBySize(shape, outputBin);
+            const sizeCount = getCountBySize(shape, outputBin);
+
+            const ruleA_isEnabled = $('#ruleA_isEnabled').is(':checked'); 
+            const ruleA_maxValue = $('#ruleA_maxValue').val();
+
+            const ruleB_isEnabled = $('#ruleB_isEnabled').is(':checked'); 
+            const ruleB_maxValue = $('#ruleB_maxValue').val();
+
+            const ruleC_isEnabled = $('#ruleC_isEnabled').is(':checked'); 
+            const ruleC_maxValue = $('#ruleC_maxValue').val();
+
+            const ruleD_isEnabled = $('#ruleD_isEnabled').is(':checked'); 
+            const ruleD_maxValue = $('#ruleD_maxValue').val();
+
+            if (addShape && ruleA_isEnabled && shapeSize === 'small') {
+                addShape = sizeCount < ruleA_maxValue;
+            }
+
+            if (addShape && ruleB_isEnabled && shapeSize === 'large') {
+                addShape = sizeCount < ruleB_maxValue;
+            }
+
+            if(addShape && ruleC_isEnabled){
+                addShape = shapeColorCount < ruleC_maxValue;
+            }
+
+            if (addShape && ruleD_isEnabled) {
+                addShape = shapeSizeCount < ruleD_maxValue;
+            }
+
+            return addShape;
         }
 
         function getPrintableHtml(outputBin) {
